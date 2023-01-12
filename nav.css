@@ -1,0 +1,190 @@
+/* Responsive Navbar Component Styles */
+:root {
+    --main-accent: red;
+    --text-light: white;
+    --text-dark: black;
+}
+:root {
+    --main-accent: purple;
+    --main-bkg: white;
+    --main-second-bkg: rgb(212, 212, 212);
+    --main-font: 'Arial', sans-serif;
+    --text-dark: #0d0d0d;
+    --text-light: white;
+}
+
+/* Simple reset of default styles */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font: inherit;
+    color: var(--text-dark);
+    font-size: 18px;
+    font-family: var(--main-font);
+    font-weight: 400;
+    list-style: none;
+    text-decoration: none;
+}
+
+@media screen and (max-width: 767px) {
+    * {
+        font-size: 14px;
+    }
+}
+
+img, picture, svg, video {
+    display: block;
+    max-width: 100%;
+}
+
+/* Setup of global styles */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+h2 {
+    font-size: 1.5rem;
+}
+
+.page {
+    background-color: var(--main-bkg);
+}
+
+.site-header .site-nav {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+}
+
+.site-header .site-nav ul {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+}
+
+.site-header .site-nav .nav-link {
+    color: blue;
+    text-decoration: underline;
+}
+
+.site-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+}
+
+.site-footer .footer-link {
+    text-decoration: underline;
+}
+
+.section {
+    padding: 2rem 1rem;
+}
+
+.component.section {
+    background-color: var(--main-second-bkg); /* Adds coloured background for components */
+    margin-bottom: 1rem; /* Separator space between components */
+}
+
+/* Index.html Styles */
+.index.page .category {
+    margin-top: 1rem;
+}
+
+.index.page .component-list .nav-link {
+    color: blue;
+    text-decoration: underline;
+}
+.responsive-nav .nav-menu{
+    display: flex;
+    justify-content: space-between;    
+    align-items: center;
+    height: 80px;
+}
+
+.responsive-nav .nav-menu .nav-list {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+}
+
+.responsive-nav .nav-menu .nav-list .nav-link {
+    text-decoration: underline;
+    padding: 0.5rem;
+}
+.responsive-nav .nav-menu .nav-list .nav-link.active {
+    background-color: var(--main-accent);
+    color: var(--text-light);
+    padding: 0.5rem;
+}
+.responsive-nav .hamburger-menu, .responsive-nav .toggle {
+    display: none;
+}
+
+@media screen and (max-width: 1024px) {
+    .responsive-nav .nav-menu .toggle {
+        height: 35px;
+        width: 40px;
+        position: absolute;
+        right: 1rem;
+        top: 8.4rem;
+        opacity: 0%;
+    }
+    .responsive-nav .nav-menu .nav-list {
+        display: none; /* hiding until icon is clicked */ 
+    }
+    .responsive-nav .nav-menu .toggle:checked ~ .nav-list {
+        display: flex; /* showing menu when icon is clicked */
+        position: fixed; /* Needs to be fixed or it will push down page content instead of overlay it*/
+        width: 100%;
+        flex-direction: column;
+        background-color: var(--text-dark);
+        align-items: center;
+        padding-top: 2rem;
+        padding-bottom: 2rem; 
+    }
+    .responsive-nav {
+        position: relative; /* Needs to be relative so the position: absolute hamburger menu can stick to this parent element nice and responsively */
+        padding-bottom: 0px;
+        padding-right: 0px;
+        padding-left: 0px;
+    }
+    .responsive-nav .nav-menu {
+        vertical-align: middle;
+        display: inline;
+    }
+    .responsive-nav .nav-menu .logo {
+        padding-bottom: 2rem;
+        padding-left: 1rem;
+    }
+    .responsive-nav .nav-menu .nav-list .nav-link {
+        color: var(--text-light);
+    }
+    .responsive-nav .hamburger-menu {
+        display: flex;
+        position: absolute;
+        right: 1rem; /*  mimicing the padding on the navbar exactly by choosing same value */
+        top: 1.9rem;
+        flex-direction: column;
+        gap: 0.5rem;
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+    }
+    .responsive-nav .hamburger-menu .line {
+        background-color: var(--text-dark);
+        height: 5px;
+        border-radius: 99px;
+    }
+}
